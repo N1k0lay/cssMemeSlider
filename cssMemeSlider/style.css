@@ -128,11 +128,6 @@ body {
 }
 
 
-.slider__control #c5:checked ~ .slider__images {
-    transform: translateX(100px);
-}
-
-
 #c1:checked ~ .slider__images, #c1:checked ~ .slider__description__wrapper .slider__description {
     transform: translateX(0);
 }
