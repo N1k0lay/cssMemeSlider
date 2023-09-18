@@ -82,11 +82,6 @@ body {
     width: 25%;
 }
 
-@media screen and (max-width: 768px) {
-    .slider__description__item {
-        text-align: center;
-    }
-}
 
 .slider__control {
     grid-area: control;
