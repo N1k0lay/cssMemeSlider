@@ -115,11 +115,14 @@ body {
     border-radius: 50%;
     border: 0.1em var(--color-control) solid;
     background-color: var(--color-control);
-
+    transition: color linear 500ms, background-color linear 500ms, box-shadow linear 500ms;
 }
 
 .circle:hover {
     filter: brightness(0) invert(100%);
+}
+.circle:active {
+    box-shadow: black 0.2em 0.2em 1em 0;
 }
 
 #c1:checked ~ .slider__control .c1 .circle,
