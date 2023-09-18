@@ -120,6 +120,8 @@ body {
 
 .circle:hover {
     filter: brightness(0) invert(100%);
+    transition: filter linear 100ms;
+
 }
 .circle:active {
     box-shadow: black 0.2em 0.2em 1em 0;
