@@ -1,0 +1,145 @@
+:root{
+    --slider-width: 30em;
+    --color-control: #b22f92;
+}
+
+@media screen and (max-width: 768px) {
+    :root{
+        --slider-width: 95vw;
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+input {
+    display: none;
+}
+
+body {
+    background-color: moccasin;
+    color: black;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+}
+
+.slider__wrapper {
+    width: var(--slider-width);
+    overflow: hidden;
+    margin: auto;
+    display: grid;
+    grid-template-areas: 'images images' 'description control';
+    grid-template-columns: 2fr 1fr;
+    row-gap: 1em;
+}
+
+@media screen and (max-width: 768px) {
+    .slider__wrapper {
+        grid-template-areas: 'images' 'control' 'description';
+        grid-template-columns: 1fr;
+        row-gap: 1em;
+    }
+}
+
+.slider__footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.slider__images {
+    grid-area: images;
+    display: flex;
+    transform: translateX(0);
+    width: 400%;
+    transition: transform 0.5s ease;
+}
+.slider__images__image {
+    width: 25%;
+}
+
+.slider__images__image img {
+    height: 100%;
+    width: 100%;
+}
+
+.slider__description__wrapper {
+    grid-area: description;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider__description {
+    width: 400%;
+    display: flex;
+    transition: transform 0.5s ease;
+    overflow: hidden;
+}
+
+.slider__description__item {
+    width: 25%;
+}
+
+
+.slider__control {
+    grid-area: control;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.2em;
+}
+
+@media screen and (max-width: 768px) {
+    .slider__control {
+        justify-content: center;
+    }
+}
+
+.slider__control label {
+    cursor: pointer;
+    padding: 0.2em;
+}
+
+.circle {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 0.1em var(--color-control) solid;
+    background-color: var(--color-control);
+    transition: color linear 500ms, background-color linear 500ms, box-shadow linear 500ms;
+}
+
+
+label:hover .circle {
+    filter: brightness(0) invert(100%);
+    transition: filter linear 100ms;
+
+}
+.circle:active {
+    box-shadow: black 0.2em 0.2em 1em 0;
+}
+
+#c1:checked ~ .slider__control .c1 .circle,
+#c2:checked ~ .slider__control .c2 .circle,
+#c3:checked ~ .slider__control .c3 .circle,
+#c4:checked ~ .slider__control .c4 .circle {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+
+#c1:checked ~ .slider__images, #c1:checked ~ .slider__description__wrapper .slider__description {
+    transform: translateX(0);
+}
+#c2:checked ~ .slider__images, #c2:checked ~ .slider__description__wrapper .slider__description {
+    transform: translateX(-25%);
+}
+#c3:checked ~ .slider__images, #c3:checked  ~ .slider__description__wrapper .slider__description {
+    transform: translateX(-50%);
+}
+#c4:checked ~ .slider__images, #c4:checked  ~ .slider__description__wrapper .slider__description {
+    transform: translateX(-75%);
+}
