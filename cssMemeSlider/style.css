@@ -113,7 +113,8 @@ body {
     transition: color linear 500ms, background-color linear 500ms, box-shadow linear 500ms;
 }
 
-.circle:hover {
+
+label:hover .circle {
     filter: brightness(0) invert(100%);
     transition: filter linear 100ms;
 
